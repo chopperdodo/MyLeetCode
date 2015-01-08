@@ -9,8 +9,11 @@
 #ifndef __LeetCode__BaseUse__
 #define __LeetCode__BaseUse__
 
-#include <stdio.h>
+#include <cstdio>
+#include <vector>
 #include <stack>
+
+using namespace std;
 
 class TreeNode;
 
