@@ -32,4 +32,7 @@ public:
     
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
+
+BaseSolution* getSolutionClass(int problem_num);
+
 #endif /* defined(__LeetCode__BaseUse__) */
