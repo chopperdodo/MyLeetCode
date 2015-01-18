@@ -9,7 +9,8 @@
 #ifndef LeetCode_QuestionSet_h
 #define LeetCode_QuestionSet_h
 
-#include "Flattern_Binary_Tree_to_Linked_List.h"
+#include "Two_Sum_P001.h"
+#include "Flattern_Binary_Tree_to_Linked_List_P114.h"
 #include "Dungeon_Game_P174.h"
 
 #endif

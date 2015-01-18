@@ -14,7 +14,7 @@
 int main(int argc, const char * argv[]) {
     
     BaseSolution *p_solution = NULL;
-    int problem_num = -1;
+    int problem_num = 1;
     
     for (int i = 0; i < argc; ++i) {
         const char *op = argv[i];
@@ -22,11 +22,12 @@ int main(int argc, const char * argv[]) {
         if (strcmp(op, "-h") == 0) {
             printf("Call Help Function\n");
             exit(0);
-        } else
+        } else {
             if (strcmp(op, "-n") == 0) {
                 problem_num = atoi(argv[++i]);
                 printf("Choose Problem <%d>\n", problem_num);
             }
+        }
     }
     
     if (problem_num < 0) {

@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Frederic Zhang. All rights reserved.
 //
 
-#include "Flattern_Binary_Tree_to_Linked_List.h"
+#include "Flattern_Binary_Tree_to_Linked_List_P114.h"
 
 void Flattern_BT_P114 :: flatten(TreeNode *root) {
     if (root == NULL) {
