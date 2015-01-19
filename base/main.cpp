@@ -14,7 +14,7 @@
 int main(int argc, const char * argv[]) {
     
     BaseSolution *p_solution = NULL;
-    int problem_num = 1;
+    int problem_num = 3;
     
     for (int i = 0; i < argc; ++i) {
         const char *op = argv[i];

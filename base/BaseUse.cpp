@@ -72,9 +72,21 @@ void BaseSolution:: read_test_file(string path, int num) {
                         
                         input_data.push_back(cur_input);
                     }
+                    // type of string
+                    else if (line.compare("S") == 0) {
+                        cur_input.type = STRING;
+                        
+                        lc_getline(test_file, line);
+                        
+                        basic_vec_str.push_back(line);
+                        
+                        cur_input.p_string = &basic_vec_str[basic_vec_str.size() - 1];
+                        
+                        input_data.push_back(cur_input);
+                    }
                     
                     // type of vector of int
-                    if (line.compare("VI") == 0) {
+                    else if (line.compare("VI") == 0) {
                         cur_input.type = VECTOR_INT;
                         
                         vector<int> tmp_vec;
@@ -90,6 +102,34 @@ void BaseSolution:: read_test_file(string path, int num) {
                         vec_int.push_back(tmp_vec);
                         
                         cur_input.p_vec_int = &vec_int[vec_int.size() - 1];
+                        
+                        input_data.push_back(cur_input);
+                    }
+                    
+                    // type of list of int
+                    else if (line.compare("LI") == 0) {
+                        cur_input.type = LIST_INT;
+                        
+                        ListNode *p_tem_head = NULL, *p_tem_tail = NULL;
+                        
+                        lc_getline(test_file, line);
+                        
+                        istringstream line_sp(line);
+                        string token;
+                        
+                        while (getline(line_sp, token, ',')) {
+                            if (p_tem_head == NULL) {
+                                p_tem_head = new ListNode(atoi(token.c_str()));
+                                p_tem_tail = p_tem_head;
+                            } else {
+                                p_tem_tail = new ListNode(atoi(token.c_str()));
+                                p_tem_tail = p_tem_tail->next;
+                            }
+                        }
+                        
+                        vec_list.push_back(p_tem_head);
+                        
+                        cur_input.p_list_node = vec_list[vec_list.size() - 1];
                         
                         input_data.push_back(cur_input);
                     }
@@ -117,6 +157,32 @@ bool BaseSolution::lc_getline(ifstream &r_file, string &str_buf) {
     return false;
 }
 
+void BaseSolution:: print_result(int type, void* data) {
+    printf("Result is:\n");
+    printf("\n");
+    
+    switch (type) {
+        case INTEGER: {
+            int *p_res = (int *)data;
+            printf("%d\n", *p_res);
+            break;
+        }
+        case LIST_INT: {
+            ListNode *head = *(ListNode **)data;
+            while (head) {
+                if (head->next) {
+                    printf("%d -> ", head->val);
+                } else {
+                    printf("%d\n", head->val);
+                }
+                head = head->next;
+            }
+            break;
+        }
+            
+    }
+}
+
 
 BaseSolution* getSolutionClass(int problem_num) {
     BaseSolution *p_solution = nullptr;
@@ -124,6 +190,12 @@ BaseSolution* getSolutionClass(int problem_num) {
     switch (problem_num) {
         case 1:
             p_solution = new Two_Sum_P001();
+            break;
+        case 2:
+            p_solution = new Add_Two_Numbers_P002();
+            break;
+        case 3:
+            p_solution = new Longets_Substring_Without_Repeating_Characters_P003();
             break;
             
         case 114:
