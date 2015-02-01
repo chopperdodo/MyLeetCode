@@ -11,6 +11,7 @@
 
 #include <vector>
 #include <stack>
+#include <string.h>
 #include <string>
 #include <unordered_map>
 

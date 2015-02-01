@@ -20,7 +20,7 @@ void BaseSolution:: read_test_file(string path, int num) {
     int read_all = (num == -1) ? 1 : 0;
 
     ifstream test_file;
-    test_file.open(path);
+    test_file.open(path.c_str());
     
     if (test_file.is_open()) {
         while (lc_getline(test_file, line)) {
@@ -185,7 +185,7 @@ void BaseSolution:: print_result(int type, void* data) {
 
 
 BaseSolution* getSolutionClass(int problem_num) {
-    BaseSolution *p_solution = nullptr;
+    BaseSolution *p_solution = NULL;
     
     switch (problem_num) {
         case 1:

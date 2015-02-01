@@ -1,6 +1,6 @@
 CXX=g++
 
-CPPFLAGS =  -I. -Ibase
+CPPFLAGS = -std=c++11 -I. -Ibase
 CPPFLAGS += -I001_050 -I101_125 -I151_175
 
 SRC = base/BaseUse.cpp base/main.cpp
