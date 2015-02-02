@@ -1,6 +1,6 @@
 CXX=g++
 
-CPPFLAGS =  -I. -Ibase
+CPPFLAGS = -std=c++0x -I. -Ibase
 CPPFLAGS += -I001_050 -I101_125 -I151_175
 
 SRC = base/BaseUse.cpp base/main.cpp
@@ -19,7 +19,7 @@ OBJS=$(SRC:.cpp=.o)
 all: lc clear_o
 
 lc: $(OBJS)
-	$(CXX) $(CPPFLAGS) -o $@ $^
+	$(CXX) ${DFLAGS} $(CPPFLAGS) -o $@ $^
 
 clear_o:
 	rm -f $(OBJS)

@@ -11,6 +11,7 @@
 
 #include <vector>
 #include <stack>
+#include <string.h>
 #include <string>
 #include <unordered_map>
 
@@ -21,6 +22,8 @@
 #include <iostream>
 
 using namespace std;
+
+#define NOT_XCODE
 
 // Basic data structure class
 

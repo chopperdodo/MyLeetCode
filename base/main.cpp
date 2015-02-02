@@ -39,6 +39,8 @@ int main(int argc, const char * argv[]) {
     
     if (p_solution != NULL) {
         p_solution->run();
+    } else {
+        printf("Error to find class for problem=%d\n", problem_num);
     }
     
     return 0;

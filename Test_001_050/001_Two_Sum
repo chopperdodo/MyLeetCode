@@ -2,6 +2,17 @@ TEST 1
 
 INPUT 1
 VI
+5, 75, 25
+
+INPUT 2
+I
+100
+END
+
+TEST 2
+
+INPUT 1
+VI
 1, 5, 7, 9, 12, 50, 2, 32, 543
 
 INPUT 2
