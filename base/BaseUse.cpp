@@ -197,7 +197,10 @@ BaseSolution* getSolutionClass(int problem_num) {
         case 3:
             p_solution = new Longets_Substring_Without_Repeating_Characters_P003();
             break;
-            
+        case 4:
+            p_solution = new Median_Of_Two_Sorted_Arrays_P004();
+            break;
+
         case 114:
             p_solution = new Flattern_BT_P114();
             break;
