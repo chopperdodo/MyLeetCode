@@ -200,6 +200,9 @@ BaseSolution* getSolutionClass(int problem_num) {
         case 4:
             p_solution = new Median_Of_Two_Sorted_Arrays_P004();
             break;
+        case 5:
+            p_solution = new Longest_Palindromic_Substring_P005();
+            break;
 
         case 114:
             p_solution = new Flattern_BT_P114();
