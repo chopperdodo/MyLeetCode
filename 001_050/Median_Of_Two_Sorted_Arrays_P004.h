@@ -14,6 +14,8 @@ public:
 
     double find_kth_in_first_array(int First[], int len_1, int Second[], int len_2, int k, int *found);
     virtual void run();
+
+    virtual string get_name() { return "Median_Of_Two_Sorted_Arrays_P004"; }
 };
 
 #endif /* defined(__LeetCode__Median_Of_Two_Sorted_Arrays_P004__) */

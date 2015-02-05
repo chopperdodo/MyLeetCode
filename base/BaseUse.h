@@ -47,7 +47,10 @@ struct ListNode {
 enum {
     INTEGER = 1,
     STRING,
-    
+    DOUBLE,
+
+    ARRAY_INT = 5,
+
     VECTOR_INT = 10,
     VECTOR_STRING,
     
@@ -81,6 +84,8 @@ public:
     virtual void print_result(int type, void* data);
     
     virtual void read_test_file(string path, int num);
+
+    virtual string get_name() { return "Base"; }
     
 protected:
     vector<input_data_t> input_data;
@@ -90,7 +95,7 @@ protected:
     vector<string> basic_vec_str;
     
     // vectors
-    vector<vector<int> > vec_int;
+    vector<vector<int> > vec_int; // used for both VECOTR_INT and ARRAY_INT
     
     // lists
     vector<ListNode *> vec_list;

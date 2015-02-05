@@ -86,4 +86,41 @@ find_kth_in_first_array(int First[], int len_1, int Second[], int len_2, int k, 
 }
 
 void Median_Of_Two_Sorted_Arrays_P004:: run() {
+#ifdef NOT_XCODE
+    string path = "Test_001_050/004_Median_Of_Two_Sorted_Arrays";
+#else
+    string path = "";
+#endif
+    read_test_file(path, 1);
+
+    vector<int> *p_input_1 = NULL;
+    int         *p_input_2 = NULL;
+    vector<int> *p_input_3 = NULL;
+    int         *p_input_4 = NULL;
+
+    int ready = 0;
+
+    for (int i = 0; i < input_data.size(); ++i) {
+        if (input_data[i].idx == 1) {
+            p_input_1 = input_data[i].p_vec_int;
+        } else 
+        if (input_data[i].idx == 2) {
+            p_input_2 = input_data[i].p_integer;
+        } else
+        if (input_data[i].idx == 3) {
+            p_input_3 = input_data[i].p_vec_int;
+        } else
+        if (input_data[i].idx == 4) {
+            p_input_4 = input_data[i].p_integer;
+        } else {
+            continue;
+        }
+        ready |= 1 << i;
+    }
+
+    if (ready == 0xf) {
+        double res = findMedianSortedArrays(&((*p_input_1)[0]), *p_input_2, &((*p_input_3)[0]), *p_input_4);
+        print_result(DOUBLE, &res);
+    }
+
 }

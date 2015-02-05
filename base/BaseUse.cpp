@@ -85,9 +85,10 @@ void BaseSolution:: read_test_file(string path, int num) {
                         input_data.push_back(cur_input);
                     }
                     
+                    // type of array of int
                     // type of vector of int
-                    else if (line.compare("VI") == 0) {
-                        cur_input.type = VECTOR_INT;
+                    else if (line.compare("VI") == 0 || line.compare("AI") == 0) {
+                        cur_input.type = line.compare("VI") == 0 ? VECTOR_INT : ARRAY_INT;
                         
                         vector<int> tmp_vec;
                         
@@ -167,6 +168,12 @@ void BaseSolution:: print_result(int type, void* data) {
             printf("%d\n", *p_res);
             break;
         }
+        case DOUBLE: {
+            double *p_res = (double *)data;
+            printf("%s: %f\n", get_name().c_str(), *p_res);
+            break;
+        }
+
         case LIST_INT: {
             ListNode *head = *(ListNode **)data;
             while (head) {
