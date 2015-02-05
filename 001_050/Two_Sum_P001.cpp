@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Frederic Zhang. All rights reserved.
 //
 
-#include "Two_Sum_P001.h"
+#include "Question_001_050.h"
 
 #if 0
 Working version 1

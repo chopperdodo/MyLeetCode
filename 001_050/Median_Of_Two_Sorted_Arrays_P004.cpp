@@ -1,4 +1,4 @@
-#include "Median_Of_Two_Sorted_Arrays_P004.h"
+#include "Question_001_050.h"
 
 // Iterative way, Feb/02/2015
 double Median_Of_Two_Sorted_Arrays_P004::

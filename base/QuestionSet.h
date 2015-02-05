@@ -9,13 +9,7 @@
 #ifndef LeetCode_QuestionSet_h
 #define LeetCode_QuestionSet_h
 
-#include "Two_Sum_P001.h"
-#include "Add_Two_Numbers_P002.h"
-#include "Longest_Substring_Without_Repeating_Characters_P003.h"
-#include "Median_Of_Two_Sorted_Arrays_P004.h"
-#include "Longest_Palindromic_Substring_P005.h"
-
-#include "Integer_To_Roman_P012.h"
+#include "Question_001_050.h"
 
 #include "Flattern_Binary_Tree_to_Linked_List_P114.h"
 #include "Dungeon_Game_P174.h"
