@@ -42,8 +42,9 @@ void Longets_Substring_Without_Repeating_Characters_P003:: run() {
     int ready = 0;
     
     for (int i = 0; i < input_data.size(); i++) {
+        int idx = input_data[i].pos_general;
         if (input_data[i].idx == 1) {
-            p_input_1 = input_data[i].p_string;
+            p_input_1 = &basic_vec_str[idx];
             ready |= 1 << 0;
         }
     }

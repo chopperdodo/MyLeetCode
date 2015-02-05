@@ -42,12 +42,13 @@ void Add_Two_Numbers_P002:: run() {
     int ready = 0;
     
     for (int i = 0; i < input_data.size(); ++i) {
+        int idx = input_data[i].pos_general;
         if (input_data[i].idx == 1) {
-            p_input_1 = input_data[i].p_list_node;
+            p_input_1 = vec_list[idx];
             ready |= 1 << 0;
         }
         if (input_data[i].idx == 2) {
-            p_input_2 = input_data[i].p_list_node;
+            p_input_2 = vec_list[idx];
             ready |= 1 << 1;
         }
     }

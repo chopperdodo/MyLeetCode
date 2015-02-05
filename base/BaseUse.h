@@ -64,12 +64,11 @@ typedef struct _input_data_t {
     int type;
     
     union {
-        int         *p_integer;
-        string      *p_string;
-        
-        vector<int> *p_vec_int;
-        
-        ListNode    *p_list_node;
+        int pos_general;
+        int pos_int;
+        int pos_str;
+        int pos_vec_int;
+        int pos_lst_int;
     };
     
 } input_data_t;

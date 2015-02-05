@@ -77,12 +77,14 @@ void Two_Sum_P001:: run() {
     int ready = 0;
     
     for (int i = 0; i < input_data.size(); ++i) {
+        int idx = input_data[i].pos_general;
+        
         if (input_data[i].idx == 1) {
-            p_input_1 = input_data[i].p_vec_int;
+            p_input_1 = &vec_int[idx];
             ready |= 1 << 0;
         }
         if (input_data[i].idx == 2) {
-            p_input_2 = input_data[i].p_integer;
+            p_input_2 = &basic_vec_int[idx];
             ready |= 1 << 1;
         }
     }

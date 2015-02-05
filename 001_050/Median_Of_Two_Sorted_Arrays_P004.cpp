@@ -89,7 +89,7 @@ void Median_Of_Two_Sorted_Arrays_P004:: run() {
 #ifdef NOT_XCODE
     string path = "Test_001_050/004_Median_Of_Two_Sorted_Arrays";
 #else
-    string path = "";
+    string path = "/Users/shepherd_of_god/Documents/Programming/LeetCode_Cpp/LeetCode/LeetCode/Test_001_050/004_Median_Of_Two_Sorted_Arrays";
 #endif
     read_test_file(path, 1);
 
@@ -101,17 +101,18 @@ void Median_Of_Two_Sorted_Arrays_P004:: run() {
     int ready = 0;
 
     for (int i = 0; i < input_data.size(); ++i) {
+        int idx = input_data[i].pos_general;
         if (input_data[i].idx == 1) {
-            p_input_1 = input_data[i].p_vec_int;
+            p_input_1 = &vec_int[idx];
         } else 
         if (input_data[i].idx == 2) {
-            p_input_2 = input_data[i].p_integer;
+            p_input_2 = &basic_vec_int[idx];
         } else
         if (input_data[i].idx == 3) {
-            p_input_3 = input_data[i].p_vec_int;
+            p_input_3 = &vec_int[idx];
         } else
         if (input_data[i].idx == 4) {
-            p_input_4 = input_data[i].p_integer;
+            p_input_4 = &basic_vec_int[idx];
         } else {
             continue;
         }

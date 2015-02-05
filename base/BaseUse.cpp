@@ -41,7 +41,7 @@ void BaseSolution:: read_test_file(string path, int num) {
                     
                     break;
                 }
-                    
+
                 case READ_INPUT:
                 {
                     int input_idx = -1;
@@ -68,7 +68,7 @@ void BaseSolution:: read_test_file(string path, int num) {
                         int read_val = atoi(line.c_str());
                         basic_vec_int.push_back(read_val);
                         
-                        cur_input.p_integer = &basic_vec_int[basic_vec_int.size() - 1];
+                        cur_input.pos_int = (int)basic_vec_int.size() - 1;
                         
                         input_data.push_back(cur_input);
                     }
@@ -80,7 +80,7 @@ void BaseSolution:: read_test_file(string path, int num) {
                         
                         basic_vec_str.push_back(line);
                         
-                        cur_input.p_string = &basic_vec_str[basic_vec_str.size() - 1];
+                        cur_input.pos_str = (int)basic_vec_str.size() - 1;
                         
                         input_data.push_back(cur_input);
                     }
@@ -102,7 +102,7 @@ void BaseSolution:: read_test_file(string path, int num) {
                         }
                         vec_int.push_back(tmp_vec);
                         
-                        cur_input.p_vec_int = &vec_int[vec_int.size() - 1];
+                        cur_input.pos_vec_int = (int)vec_int.size() - 1;
                         
                         input_data.push_back(cur_input);
                     }
@@ -130,7 +130,7 @@ void BaseSolution:: read_test_file(string path, int num) {
                         
                         vec_list.push_back(p_tem_head);
                         
-                        cur_input.p_list_node = vec_list[vec_list.size() - 1];
+                        cur_input.pos_lst_int = (int)vec_list.size() - 1;
                         
                         input_data.push_back(cur_input);
                     }
