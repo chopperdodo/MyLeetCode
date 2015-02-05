@@ -173,6 +173,11 @@ void BaseSolution:: print_result(int type, void* data) {
             printf("%s: %f\n", get_name().c_str(), *p_res);
             break;
         }
+        case STRING: {
+            string *p_res = (string *)data;
+            printf("%s: %s\n", get_name().c_str(), p_res->c_str());
+            break;
+        }
 
         case LIST_INT: {
             ListNode *head = *(ListNode **)data;
@@ -209,6 +214,10 @@ BaseSolution* getSolutionClass(int problem_num) {
             break;
         case 5:
             p_solution = new Longest_Palindromic_Substring_P005();
+            break;
+
+        case 12:
+            p_solution = new Integer_To_Roman_P012();
             break;
 
         case 114:

@@ -23,8 +23,6 @@
 
 using namespace std;
 
-#define NOT_XCODE
-
 // Basic data structure class
 
 class TreeNode {
