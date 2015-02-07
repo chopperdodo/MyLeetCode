@@ -40,7 +40,6 @@ struct ListNode {
     ListNode(int x) : val(x), next(NULL) {}
 };
 
-
 // data structure for input
 enum {
     INTEGER = 1,
@@ -71,34 +70,64 @@ typedef struct _input_data_t {
     
 } input_data_t;
 
+// data strucure for result
+
+typedef struct _result_data_t {
+    int  type;
+    
+    union {
+        int    res_int;
+        char   res_str[256];
+
+    } result;
+
+} result_data_t;
+
 // Core Basic Class
 
 class BaseSolution {
 public:
-    TreeNode *root;
+    TreeNode *root; // should be removed from here
     
-    virtual void run() = 0;
+    virtual void run();// no need
+   
+    virtual void get_ready();
+
+    virtual result_data_t lc_start() { result_data_t res; return res; } // should = 0
+
     virtual void print_result(int type, void* data);
     
     virtual void read_test_file(string path, int num);
+    virtual void set_up_inputs();
 
     virtual string get_name() { return "Base"; }
     
 protected:
+    // used for input
+    vector<int>          input_types;
+    vector<void *>       input_ptrs;
     vector<input_data_t> input_data;
     
     // basic types
-    vector<int> basic_vec_int;
+    vector<int>    basic_vec_int;
     vector<string> basic_vec_str;
+    vector<double> basic_vec_dou;
     
     // vectors
-    vector<vector<int> > vec_int; // used for both VECOTR_INT and ARRAY_INT
+    vector<vector<int> >    vec_int; // used for both VECOTR_INT and ARRAY_INT
+    vector<vector<string> > vec_str;
     
     // lists
     vector<ListNode *> vec_list;
-    
+
+
+    // name, test file postion
+    string my_name;
+    string my_num;
 private:
     bool lc_getline(ifstream &r_file, string &str_buf);
+    
+    string get_test_file_path(int num);
 };
 
 

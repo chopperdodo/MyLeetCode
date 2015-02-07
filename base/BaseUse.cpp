@@ -61,6 +61,7 @@ void BaseSolution:: read_test_file(string path, int num) {
                     
                     // type of integer
                     if (line.compare("I") == 0) {
+                        input_types.push_back(INTEGER);
                         cur_input.type = INTEGER;
                         
                         lc_getline(test_file, line);
@@ -74,6 +75,7 @@ void BaseSolution:: read_test_file(string path, int num) {
                     }
                     // type of string
                     else if (line.compare("S") == 0) {
+                        input_types.push_back(STRING);
                         cur_input.type = STRING;
                         
                         lc_getline(test_file, line);
@@ -88,7 +90,13 @@ void BaseSolution:: read_test_file(string path, int num) {
                     // type of array of int
                     // type of vector of int
                     else if (line.compare("VI") == 0 || line.compare("AI") == 0) {
-                        cur_input.type = line.compare("VI") == 0 ? VECTOR_INT : ARRAY_INT;
+                        if (line.compare("VI")) {
+                            cur_input.type = VECTOR_INT;
+                            input_types.push_back(VECTOR_INT);
+                        } else {
+                            cur_input.type = ARRAY_INT;
+                            input_types.push_back(ARRAY_INT);
+                        }
                         
                         vector<int> tmp_vec;
                         
@@ -110,6 +118,7 @@ void BaseSolution:: read_test_file(string path, int num) {
                     // type of list of int
                     else if (line.compare("LI") == 0) {
                         cur_input.type = LIST_INT;
+                        input_types.push_back(LIST_INT);
                         
                         ListNode *p_tem_head = NULL, *p_tem_tail = NULL;
                         
@@ -143,6 +152,9 @@ void BaseSolution:: read_test_file(string path, int num) {
             }
             
         }
+    } else {
+        printf ("open test file fail\n");
+        exit(-1);
     }
     
     return;
@@ -174,8 +186,7 @@ void BaseSolution:: print_result(int type, void* data) {
             break;
         }
         case STRING: {
-            string *p_res = (string *)data;
-            printf("%s: %s\n", get_name().c_str(), p_res->c_str());
+            printf("%s: %s\n", get_name().c_str(), (char *)data);
             break;
         }
 
@@ -195,6 +206,97 @@ void BaseSolution:: print_result(int type, void* data) {
     }
 }
 
+void BaseSolution:: set_up_inputs() {
+    for (int i = 0; i < input_types.size(); ++i) {
+        int pos  = 0;
+        int type = input_types[i];
+
+        void *ptr_in_arg = NULL;
+        input_data_t *p_input_data = NULL;;
+
+        if (input_data[i].idx == i + 1) {
+            p_input_data = &input_data[i];
+        }
+
+        if (!p_input_data) {
+            for (int j = 0; j < input_data.size(); ++j) {
+                if (input_data[j].idx == i + 1) {
+                    p_input_data = &input_data[j];
+                    break;
+                }
+            }
+        }
+        if (!p_input_data) {
+            printf("Fail to set up inputs\n");
+            return;
+        }
+
+        pos = p_input_data->pos_general;
+
+        switch(type) {
+            case INTEGER:
+                ptr_in_arg = &basic_vec_int[pos];
+                break;
+            case STRING:
+                ptr_in_arg = &basic_vec_str[pos];
+                break;
+            case DOUBLE:
+                ptr_in_arg = &basic_vec_dou[pos];
+                break;
+            case ARRAY_INT:
+                ptr_in_arg = &vec_int[pos][0];
+                break;
+            case VECTOR_INT:
+                ptr_in_arg = &vec_int[pos];
+                break;
+            case VECTOR_STRING:
+                ptr_in_arg = &vec_str[pos];
+                break;
+            case LIST_INT:
+                ptr_in_arg = &vec_list[pos];
+                break;
+            default:
+                printf("Unknown type %d\n", type);
+        }
+
+        if (ptr_in_arg) {
+            input_ptrs.push_back(ptr_in_arg);
+        }
+
+    }
+}
+
+void BaseSolution:: get_ready() {
+    string path;
+    int num = atoi(my_num.c_str());
+
+    string dir = get_test_file_path(num);
+#ifndef NOT_XCODE
+    path.append("/Users/shepherd_of_god/Documents/Programming/LeetCode_Cpp/LeetCode/LeetCode/");
+#endif
+    path += dir + "/" + my_num + "_" + my_name;
+  
+    read_test_file(path, 1); // for now only read test file 1
+
+    set_up_inputs();
+}
+
+void BaseSolution:: run() {
+    result_data_t res;
+
+    get_ready();
+    res = lc_start();
+
+    print_result(res.type, &res.result);
+}
+
+string BaseSolution:: get_test_file_path(int num) {
+    if (num >= 0 && num <= 50) {
+        return "Test_001_050"; 
+    } else {
+        return "Test_051_100";
+    }
+}
 
 BaseSolution* getSolutionClass(int problem_num) {
     BaseSolution *p_solution = NULL;

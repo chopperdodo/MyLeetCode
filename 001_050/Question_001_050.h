@@ -88,10 +88,15 @@ public:
  */
 class ZigZag_Conversion_P006 : public BaseSolution {
 public:
+
+    ZigZag_Conversion_P006() {
+        my_name = "ZigZag_Conversion";
+        my_num  = "006";
+    }
+
     string convert(string s, int nRows);
 
-    virtual void run();
-    virtual string get_name() { return "ZigZag_Conversion"; }
+    virtual result_data_t lc_start();
 };
 
 

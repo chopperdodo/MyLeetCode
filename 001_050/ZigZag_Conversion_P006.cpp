@@ -33,31 +33,18 @@ string ZigZag_Conversion_P006:: convert(string s, int nRows) {
     return res;
 }
 
-void ZigZag_Conversion_P006:: run() {
-    string path = "Test_001_050/006_ZigZag_Conversion";
+result_data_t ZigZag_Conversion_P006:: lc_start() {
+    result_data_t ret_data;
+    
+    string* input_1 = (string *) input_ptrs[0];
+    int*    input_2 = (int *)    input_ptrs[1];
 
-    read_test_file(path, 1);
+    string res = convert(*input_1, *input_2);
 
-    string *p_input_1 = NULL;
-    int    *p_input_2 = NULL;
+    ret_data.type = STRING;
+    strncpy((char *)&ret_data.result, res.c_str(), res.size());
+   
+    ret_data.result.res_str[res.size()] = '\0';
 
-    int ready = 0;
-
-    for (int i = 0; i < input_data.size(); ++i) {
-        int idx = input_data[i].pos_general;
-
-        if (input_data[i].idx == 1) {
-            p_input_1 = &basic_vec_str[idx];
-            ready |= 1 << 0;
-        }
-        if (input_data[i].idx == 2) {
-            p_input_2 = &basic_vec_int[idx];
-            ready |= 1 << 1;
-        }
-
-        if (ready == 3) {
-            string res = convert(*p_input_1, *p_input_2);
-            print_result(STRING, &res);
-        }
-    }
+    return ret_data;
 }
