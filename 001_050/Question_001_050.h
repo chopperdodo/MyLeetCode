@@ -16,9 +16,15 @@
 
 class Two_Sum_P001 : public BaseSolution {
 public:
+    Two_Sum_P001() {
+        my_name = "Two_Sum";
+        my_num = "001";
+    }
+    
     vector<int> twoSum(vector<int> &numbers, int target);
     
-    virtual void run();
+    virtual result_data_t lc_start();
+
 };
 
 /*
@@ -30,9 +36,13 @@ public:
 
 class Add_Two_Numbers_P002 : public BaseSolution {
 public:
+    Add_Two_Numbers_P002() {
+        my_name = "Add_Two_Numbers";
+        my_num  = "002";
+    }
     ListNode *addTwoNumbers(ListNode *l1, ListNode *l2);
     
-    virtual void run();
+    virtual result_data_t lc_start();
 };
 
 /*
@@ -43,8 +53,13 @@ public:
 
 class Longets_Substring_Without_Repeating_Characters_P003 : public BaseSolution {
 public:
+    Longets_Substring_Without_Repeating_Characters_P003() {
+        my_name = "Longets_Substring_Without_Repeating_Characters";
+        my_num  = "003";
+    }
     int lengthOfLongestSubstring(string s);
-    virtual void run();
+
+    virtual result_data_t lc_start();
 };
 
 /*
@@ -52,12 +67,16 @@ public:
  */
 class Median_Of_Two_Sorted_Arrays_P004 : public BaseSolution {
 public:
+    Median_Of_Two_Sorted_Arrays_P004() {
+        my_name = "Median_Of_Two_Sorted_Arrays";
+        my_num  = "004";
+    }
+
     double findMedianSortedArrays(int A[], int m, int B[], int n);
 
     double find_kth_in_first_array(int First[], int len_1, int Second[], int len_2, int k, int *found);
-    virtual void run();
 
-    virtual string get_name() { return "Median_Of_Two_Sorted_Arrays_P004"; }
+    virtual result_data_t lc_start();
 };
 
 /*
@@ -66,9 +85,15 @@ public:
 
 class Longest_Palindromic_Substring_P005 : public BaseSolution {
 public:
+    Longest_Palindromic_Substring_P005() {
+        my_name = "Longest_Palindromic_Substring";
+        my_num  = "005";
+    }
+    
     string longestPalindrome(string s);
     int    isPalindrome(string s, int start, int end);
-    virtual void run();
+
+    virtual result_data_t lc_start();
 };
 
 /*
@@ -102,10 +127,14 @@ public:
 
 class Integer_To_Roman_P012 : public BaseSolution {
 public:
+    Integer_To_Roman_P012() {
+        my_name = "Integer_To_Roman";
+        my_num  = "012";
+    }
+    
     string intToRoman(int num);
-
-    virtual void run();
-    virtual string get_name() { return "Integer_To_Roman"; }
+    
+    virtual result_data_t lc_start();
 };
 
 

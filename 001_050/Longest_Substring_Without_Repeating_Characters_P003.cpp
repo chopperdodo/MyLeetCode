@@ -34,22 +34,15 @@ int Longets_Substring_Without_Repeating_Characters_P003:: lengthOfLongestSubstri
     return max(cur_max, (int)s.size() - start);
 }
 
-void Longets_Substring_Without_Repeating_Characters_P003:: run() {
-    string path = "/Users/shepherd_of_god/Documents/Programming/LeetCode_Cpp/LeetCode/LeetCode/Test_001_050/003_Longets_Substring_Without_Repeating_Characters";
-    read_test_file(path, 1);
-    
-    string *p_input_1 = NULL;
-    int ready = 0;
-    
-    for (int i = 0; i < input_data.size(); i++) {
-        int idx = input_data[i].pos_general;
-        if (input_data[i].idx == 1) {
-            p_input_1 = &basic_vec_str[idx];
-            ready |= 1 << 0;
-        }
-    }
-    
-    int res = lengthOfLongestSubstring(*p_input_1);
-    
-    print_result(INTEGER, &res);
+result_data_t
+Longets_Substring_Without_Repeating_Characters_P003:: lc_start() {
+    string *p_input_1 = (string *)input_ptrs[0];
+
+    int ret_data = lengthOfLongestSubstring(*p_input_1);
+
+    result_data_t res;
+    res.type = INTEGER;
+    res.result.res_int = ret_data;
+
+    return res;
 }

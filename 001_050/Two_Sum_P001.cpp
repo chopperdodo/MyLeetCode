@@ -63,39 +63,19 @@ vector<int> Two_Sum_P001:: twoSum(vector<int> &numbers, int target) {
     return res;
 }
 
-void Two_Sum_P001:: run() {
-#ifdef NOT_XCODE
-    string path = "Test_001_050/001_Two_Sum";
-#else
-    string path = "/Users/shepherd_of_god/Documents/Programming/LeetCode_Cpp/LeetCode/LeetCode/Test_001_050/001_Two_Sum";
-#endif
-    read_test_file(path, 1);
-    
-    vector<int> *p_input_1 = NULL;
-    int         *p_input_2 = NULL;
-    
-    int ready = 0;
-    
-    for (int i = 0; i < input_data.size(); ++i) {
-        int idx = input_data[i].pos_general;
-        
-        if (input_data[i].idx == 1) {
-            p_input_1 = &vec_int[idx];
-            ready |= 1 << 0;
-        }
-        if (input_data[i].idx == 2) {
-            p_input_2 = &basic_vec_int[idx];
-            ready |= 1 << 1;
-        }
-    }
-    
-    if (ready == 3) {
-        twoSum(*p_input_1, *p_input_2);
-    } else {
-        printf("Error in reading test file %s\n", path.c_str());
-    }
-}
+result_data_t
+Two_Sum_P001:: lc_start() {
 
+    vector<int> *p_input_1 = (vector<int> *)input_ptrs[0];
+    int         *p_input_2 = (int *)input_ptrs[1];
+
+    result_data_t res;
+
+    res.result.res_vec_int = new vector<int>(twoSum(*p_input_1, *p_input_2));
+    res.type = VECTOR_INT;
+
+    return res;
+}
 
 
 

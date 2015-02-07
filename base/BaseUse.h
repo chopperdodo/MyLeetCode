@@ -77,7 +77,10 @@ typedef struct _result_data_t {
     
     union {
         int    res_int;
+        double res_double;
         char   res_str[256];
+        ListNode    *res_list_int;
+        vector<int> *res_vec_int;
 
     } result;
 
@@ -95,13 +98,11 @@ public:
 
     virtual result_data_t lc_start() { result_data_t res; return res; } // should = 0
 
-    virtual void print_result(int type, void* data);
+    virtual void print_result(int type, result_data_t* data);
     
     virtual void read_test_file(string path, int num);
     virtual void set_up_inputs();
 
-    virtual string get_name() { return "Base"; }
-    
 protected:
     // used for input
     vector<int>          input_types;

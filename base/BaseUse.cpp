@@ -90,7 +90,7 @@ void BaseSolution:: read_test_file(string path, int num) {
                     // type of array of int
                     // type of vector of int
                     else if (line.compare("VI") == 0 || line.compare("AI") == 0) {
-                        if (line.compare("VI")) {
+                        if (line.compare("VI") == 0) {
                             cur_input.type = VECTOR_INT;
                             input_types.push_back(VECTOR_INT);
                         } else {
@@ -170,28 +170,37 @@ bool BaseSolution::lc_getline(ifstream &r_file, string &str_buf) {
     return false;
 }
 
-void BaseSolution:: print_result(int type, void* data) {
+void BaseSolution:: print_result(int type, result_data_t *data) {
     printf("Result is:\n");
     printf("\n");
     
     switch (type) {
         case INTEGER: {
-            int *p_res = (int *)data;
-            printf("%d\n", *p_res);
+            printf("%s: %d\n", my_name.c_str(), data->result.res_int);
             break;
         }
         case DOUBLE: {
-            double *p_res = (double *)data;
-            printf("%s: %f\n", my_name.c_str(), *p_res);
+            printf("%s: %f\n", my_name.c_str(), data->result.res_double);
             break;
         }
         case STRING: {
-            printf("%s: %s\n", my_name.c_str(), (char *)data);
+            printf("%s: %s\n", my_name.c_str(), data->result.res_str);
             break;
         }
 
+        case VECTOR_INT: {
+            printf("%s: ", my_name.c_str());
+            vector<int> *p_data = data->result.res_vec_int;
+
+            for (int i = 0; i < p_data->size(); ++i) {
+                printf("%d, ", p_data->at(i));
+            }
+            printf("\n");
+            break;
+        }
         case LIST_INT: {
-            ListNode *head = *(ListNode **)data;
+            ListNode *head = data->result.res_list_int;
+            printf("%s\n", my_name.c_str());
             while (head) {
                 if (head->next) {
                     printf("%d -> ", head->val);
@@ -287,7 +296,7 @@ void BaseSolution:: run() {
     get_ready();
     res = lc_start();
 
-    print_result(res.type, &res.result);
+    print_result(res.type, &res);
 }
 
 string BaseSolution:: get_test_file_path(int num) {

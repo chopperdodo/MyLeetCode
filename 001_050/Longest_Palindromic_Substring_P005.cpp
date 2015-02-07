@@ -27,11 +27,21 @@ Longest_Palindromic_Substring_P005:: isPalindrome(string s, int start, int end) 
         if (s[start] != s[end]) {
             return 0;
         }
+        start ++;
+        end --;
     }
-    start ++;
-    end --;
     return 1;
 }
 
-void Longest_Palindromic_Substring_P005:: run() {
+result_data_t
+Longest_Palindromic_Substring_P005:: lc_start() {
+    string *p_input_1 = (string *)input_ptrs[0];
+
+    string ret = longestPalindrome(*p_input_1);
+
+    result_data_t res;
+    res.type = STRING;
+    strncpy(res.result.res_str, ret.c_str(), ret.size());
+
+    return res;
 }

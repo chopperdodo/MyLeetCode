@@ -33,31 +33,16 @@ Add_Two_Numbers_P002:: addTwoNumbers(ListNode *l1, ListNode *l2) {
     return head;
 }
 
-void Add_Two_Numbers_P002:: run() {
-    string path = "/Users/shepherd_of_god/Documents/Programming/LeetCode_Cpp/LeetCode/LeetCode/Test_001_050/002_Add_Two_Numbers";
-    read_test_file(path, 1);
+result_data_t
+Add_Two_Numbers_P002:: lc_start() {
+    ListNode *p_input_1 = (ListNode *)input_ptrs[0];
+    ListNode *p_input_2 = (ListNode *)input_ptrs[1];
 
-    ListNode *p_input_1 = NULL;
-    ListNode *p_input_2 = NULL;
-    int ready = 0;
-    
-    for (int i = 0; i < input_data.size(); ++i) {
-        int idx = input_data[i].pos_general;
-        if (input_data[i].idx == 1) {
-            p_input_1 = vec_list[idx];
-            ready |= 1 << 0;
-        }
-        if (input_data[i].idx == 2) {
-            p_input_2 = vec_list[idx];
-            ready |= 1 << 1;
-        }
-    }
-    
-    if (ready == 3) {
-        ListNode *res = addTwoNumbers(p_input_1, p_input_2);
-        print_result(LIST_INT, &res);
-    } else {
-        printf("Error in reading test file %s\n", path.c_str());
-    }
+    ListNode *p_res = addTwoNumbers(p_input_1, p_input_2);
 
+    result_data_t res;
+    res.type = LIST_INT;
+    res.result.res_list_int = p_res;
+
+    return res;
 }
