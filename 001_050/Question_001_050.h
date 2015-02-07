@@ -71,6 +71,29 @@ public:
     virtual void run();
 };
 
+/*
+ *  The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)
+ *
+ *  P   A   H   N
+ *  A P L S I I G
+ *  Y   I   R
+ *
+ *  And then read line by line: "PAHNAPLSIIGYIR"
+ *
+ *  Write the code that will take a string and make this conversion given a number of rows:
+ *
+ *  string convert(string text, int nRows);
+ *
+ *  convert("PAYPALISHIRING", 3) should return "PAHNAPLSIIGYIR". 
+ */
+class ZigZag_Conversion_P006 : public BaseSolution {
+public:
+    string convert(string s, int nRows);
+
+    virtual void run();
+    virtual string get_name() { return "ZigZag_Conversion"; }
+};
+
 
 class Integer_To_Roman_P012 : public BaseSolution {
 public:
@@ -79,7 +102,6 @@ public:
     virtual void run();
     virtual string get_name() { return "Integer_To_Roman"; }
 };
-
 
 
 #endif /*define __LeetCode_Question_001_050__*/

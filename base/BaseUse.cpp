@@ -216,6 +216,10 @@ BaseSolution* getSolutionClass(int problem_num) {
             p_solution = new Longest_Palindromic_Substring_P005();
             break;
 
+        case 6:
+            p_solution = new ZigZag_Conversion_P006();
+            break;
+
         case 12:
             p_solution = new Integer_To_Roman_P012();
             break;
