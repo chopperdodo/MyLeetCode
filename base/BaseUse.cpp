@@ -182,11 +182,11 @@ void BaseSolution:: print_result(int type, void* data) {
         }
         case DOUBLE: {
             double *p_res = (double *)data;
-            printf("%s: %f\n", get_name().c_str(), *p_res);
+            printf("%s: %f\n", my_name.c_str(), *p_res);
             break;
         }
         case STRING: {
-            printf("%s: %s\n", get_name().c_str(), (char *)data);
+            printf("%s: %s\n", my_name.c_str(), (char *)data);
             break;
         }
 
