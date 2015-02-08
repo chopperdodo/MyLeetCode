@@ -125,6 +125,100 @@ public:
 };
 
 
+/*
+ * Reverse digits of an integer.
+ *
+ * Example1: x = 123, return 321
+ * Example2: x = -123, return -321
+ */
+class Reverse_Integer_P007 : public BaseSolution {
+public:
+    Reverse_Integer_P007() {
+        my_name = "Reverse_Integer";
+        my_num  = "007";
+    }
+
+    int reverse(int x);
+
+    virtual result_data_t lc_start();
+};
+
+/*
+ * Implement atoi to convert a string to an integer.
+ *
+ * Hint: Carefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible input cases.
+ *
+ * Notes: It is intended for this problem to be specified vaguely (ie, no given input specs). You are responsible to gather all the input requirements up front.
+ */
+
+class String_To_Integer_P008 : public BaseSolution {
+public:
+    String_To_Integer_P008() {
+        my_name = "String_To_Integer";
+        my_num  = "008";
+    }
+    int atoi (const char *str);
+    virtual result_data_t lc_start();
+};
+
+/*
+ * Determine whether an integer is a palindrome. Do this without extra space.
+ */
+class Palindrome_Number_P009 : public BaseSolution {
+public:
+    Palindrome_Number_P009() {
+        my_name = "Palindrome_Number";
+        my_num  = "009";
+    }
+
+    int isPalindrome(int x) {return 1;}
+    virtual result_data_t lc_start() {result_data_t res; return res;}
+};
+
+/*
+ * '.' Matches any single character.
+ * '*' Matches zero or more of the preceding element.
+ *
+ * The matching should cover the entire input string (not partial).
+ *
+ * The function prototype should be:
+ * bool isMatch(const char *s, const char *p)
+ *
+ * Some examples:
+ * isMatch("aa","a") → false
+ * isMatch("aa","aa") → true
+ * isMatch("aaa","aa") → false
+ * isMatch("aa", "a*") → true
+ * isMatch("aa", ".*") → true
+ * isMatch("ab", ".*") → true
+ * isMatch("aab", "c*a*b") → true
+ */
+class Regular_Expression_Matching_P010 : public BaseSolution {
+public:
+    Regular_Expression_Matching_P010() {
+        my_name = "Regular_Expression_Matching";
+        my_num  = "010";
+    }
+
+    bool isMatch(const char *s, const char *p) {return false;}
+    virtual result_data_t lc_start() {result_data_t res; return res;}
+};
+
+/*
+ * Given n non-negative integers a1, a2, ..., an, where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0). Find two lines, which together with x-axis forms a container, such that the container contains the most water.
+ * Note: You may not slant the container.
+ */
+class Container_With_Most_Water_P011 : public BaseSolution {
+public:
+    Container_With_Most_Water_P011() {
+        my_name = "Container_With_Most_Water";
+        my_num  = "011";
+    }
+
+    int maxArea(vector<int> &height) {return -1;}
+    virtual result_data_t lc_start() {result_data_t res; return res;} 
+};
+
 class Integer_To_Roman_P012 : public BaseSolution {
 public:
     Integer_To_Roman_P012() {

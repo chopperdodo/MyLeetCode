@@ -74,9 +74,14 @@ void BaseSolution:: read_test_file(string path, int num) {
                         input_data.push_back(cur_input);
                     }
                     // type of string
-                    else if (line.compare("S") == 0) {
-                        input_types.push_back(STRING);
-                        cur_input.type = STRING;
+                    else if (line.compare("S") == 0 || line.compare("C") == 0) {
+                        if (line.compare("S") == 0) {
+                            input_types.push_back(STRING);
+                            cur_input.type = STRING;
+                        } else {
+                            input_types.push_back(CHAR);
+                            cur_input.type = CHAR;
+                        }
                         
                         lc_getline(test_file, line);
                         
@@ -249,6 +254,9 @@ void BaseSolution:: set_up_inputs() {
             case STRING:
                 ptr_in_arg = &basic_vec_str[pos];
                 break;
+            case CHAR:
+                ptr_in_arg = &basic_vec_str[pos][0];
+                break;
             case DOUBLE:
                 ptr_in_arg = &basic_vec_dou[pos];
                 break;
@@ -329,6 +337,12 @@ BaseSolution* getSolutionClass(int problem_num) {
 
         case 6:
             p_solution = new ZigZag_Conversion_P006();
+            break;
+        case 7:
+            p_solution = new Reverse_Integer_P007();
+            break;
+        case 8:
+            p_solution = new String_To_Integer_P008();
             break;
 
         case 12:

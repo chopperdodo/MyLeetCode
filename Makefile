@@ -11,6 +11,8 @@ SRC += 001_050/Longest_Substring_Without_Repeating_Characters_P003.cpp
 SRC += 001_050/Median_Of_Two_Sorted_Arrays_P004.cpp
 SRC += 001_050/Longest_Palindromic_Substring_P005.cpp
 SRC += 001_050/ZigZag_Conversion_P006.cpp
+SRC += 001_050/Reverse_Integer_P007.cpp
+SRC += 001_050/String_To_Integer_P008.cpp
 
 SRC += 001_050/Integer_To_Roman_P012.cpp
 

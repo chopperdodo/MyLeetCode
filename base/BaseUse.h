@@ -13,6 +13,7 @@
 #include <stack>
 #include <string.h>
 #include <string>
+#include <limits.h>
 #include <unordered_map>
 
 #include <cstdio>
@@ -44,14 +45,15 @@ struct ListNode {
 enum {
     INTEGER = 1,
     STRING,
+    CHAR,
     DOUBLE,
 
-    ARRAY_INT = 5,
+    ARRAY_INT = 10,
 
-    VECTOR_INT = 10,
+    VECTOR_INT = 20,
     VECTOR_STRING,
     
-    LIST_INT = 20,
+    LIST_INT = 30,
     
     HASHMAP_INT_INT = 50
 };
