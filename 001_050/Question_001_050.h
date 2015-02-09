@@ -171,8 +171,8 @@ public:
         my_num  = "009";
     }
 
-    int isPalindrome(int x) {return 1;}
-    virtual result_data_t lc_start() {result_data_t res; return res;}
+    int isPalindrome(int x);
+    virtual result_data_t lc_start();
 };
 
 /*
@@ -200,8 +200,8 @@ public:
         my_num  = "010";
     }
 
-    bool isMatch(const char *s, const char *p) {return false;}
-    virtual result_data_t lc_start() {result_data_t res; return res;}
+    bool isMatch(const char *s, const char *p);
+    virtual result_data_t lc_start();
 };
 
 /*
@@ -215,8 +215,8 @@ public:
         my_num  = "011";
     }
 
-    int maxArea(vector<int> &height) {return -1;}
-    virtual result_data_t lc_start() {result_data_t res; return res;} 
+    int maxArea(vector<int> &height);
+    virtual result_data_t lc_start(); 
 };
 
 class Integer_To_Roman_P012 : public BaseSolution {

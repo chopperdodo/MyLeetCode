@@ -192,6 +192,10 @@ void BaseSolution:: print_result(int type, result_data_t *data) {
             printf("%s: %s\n", my_name.c_str(), data->result.res_str);
             break;
         }
+        case BOOLEAN: {
+            printf("%s: %s\n", my_name.c_str(), data->result.res_bool ? "True" : "False");
+            break;
+        }
 
         case VECTOR_INT: {
             printf("%s: ", my_name.c_str());
@@ -344,7 +348,15 @@ BaseSolution* getSolutionClass(int problem_num) {
         case 8:
             p_solution = new String_To_Integer_P008();
             break;
-
+        case 9:
+            p_solution = new Palindrome_Number_P009();
+            break;
+        case 10:
+            p_solution = new Regular_Expression_Matching_P010();
+            break;
+        case 11:
+            p_solution = new Container_With_Most_Water_P011();
+            break;
         case 12:
             p_solution = new Integer_To_Roman_P012();
             break;

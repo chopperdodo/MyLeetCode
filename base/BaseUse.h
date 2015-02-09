@@ -47,6 +47,7 @@ enum {
     STRING,
     CHAR,
     DOUBLE,
+    BOOLEAN,
 
     ARRAY_INT = 10,
 
@@ -80,6 +81,7 @@ typedef struct _result_data_t {
     union {
         int    res_int;
         double res_double;
+        bool   res_bool;
         char   res_str[256];
         ListNode    *res_list_int;
         vector<int> *res_vec_int;
