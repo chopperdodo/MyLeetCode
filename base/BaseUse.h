@@ -89,7 +89,7 @@ class BaseSolution {
 public:
     TreeNode *root; // should be removed from here
     
-    virtual void run();// no need
+    virtual void run();
    
     virtual void get_ready();
 
