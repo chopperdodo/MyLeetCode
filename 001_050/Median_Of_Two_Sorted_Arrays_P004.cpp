@@ -85,43 +85,20 @@ find_kth_in_first_array(int First[], int len_1, int Second[], int len_2, int k, 
     return 0.0;
 }
 
-void Median_Of_Two_Sorted_Arrays_P004:: run() {
-#ifdef NOT_XCODE
-    string path = "Test_001_050/004_Median_Of_Two_Sorted_Arrays";
-#else
-    string path = "/Users/shepherd_of_god/Documents/Programming/LeetCode_Cpp/LeetCode/LeetCode/Test_001_050/004_Median_Of_Two_Sorted_Arrays";
-#endif
-    read_test_file(path, 1);
+result_data_t
+Median_Of_Two_Sorted_Arrays_P004:: lc_start() {
+    int *p_input_1 = (int *)input_ptrs[0];
+    int *p_input_2 = (int *)input_ptrs[1];
+    int *p_input_3 = (int *)input_ptrs[2];
+    int *p_input_4 = (int *)input_ptrs[3];
 
-    vector<int> *p_input_1 = NULL;
-    int         *p_input_2 = NULL;
-    vector<int> *p_input_3 = NULL;
-    int         *p_input_4 = NULL;
 
-    int ready = 0;
+    double ret = findMedianSortedArrays(p_input_1, *p_input_2,
+                                        p_input_3, *p_input_4);
 
-    for (int i = 0; i < input_data.size(); ++i) {
-        int idx = input_data[i].pos_general;
-        if (input_data[i].idx == 1) {
-            p_input_1 = &vec_int[idx];
-        } else 
-        if (input_data[i].idx == 2) {
-            p_input_2 = &basic_vec_int[idx];
-        } else
-        if (input_data[i].idx == 3) {
-            p_input_3 = &vec_int[idx];
-        } else
-        if (input_data[i].idx == 4) {
-            p_input_4 = &basic_vec_int[idx];
-        } else {
-            continue;
-        }
-        ready |= 1 << i;
-    }
+    result_data_t res;
+    res.type = DOUBLE;
+    res.result.res_double = ret;
 
-    if (ready == 0xf) {
-        double res = findMedianSortedArrays(&((*p_input_1)[0]), *p_input_2, &((*p_input_3)[0]), *p_input_4);
-        print_result(DOUBLE, &res);
-    }
-
+    return res;
 }

@@ -28,24 +28,14 @@ string Integer_To_Roman_P012:: intToRoman(int num) {
     return res;
 }
 
-void Integer_To_Roman_P012:: run() {
-    string path = "Test_001_050/012_Integer_To_Roman"; 
+result_data_t Integer_To_Roman_P012:: lc_start() {
+    int *p_input_1 = (int *)input_ptrs[0];
 
-    read_test_file(path, 1);
+    string ret = intToRoman(*p_input_1);
 
-    int *p_input_1 = NULL;
-    int ready = 0;
+    result_data_t res;
+    res.type = STRING;
+    strncpy(res.result.res_str, ret.c_str(), ret.size());
 
-    for (int i = 0; i < input_data.size(); ++i) {
-        int idx = input_data[i].pos_general;
-
-        if (input_data[i].idx == 1) {
-            p_input_1 = &basic_vec_int[idx];
-        }
-        ready |= 1 << i;
-    }
-    if (ready == 1) {
-        string res = intToRoman(*p_input_1);
-        print_result(STRING, &res);
-    }
+    return res;
 }

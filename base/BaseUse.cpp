@@ -74,9 +74,14 @@ void BaseSolution:: read_test_file(string path, int num) {
                         input_data.push_back(cur_input);
                     }
                     // type of string
-                    else if (line.compare("S") == 0) {
-                        input_types.push_back(STRING);
-                        cur_input.type = STRING;
+                    else if (line.compare("S") == 0 || line.compare("C") == 0) {
+                        if (line.compare("S") == 0) {
+                            input_types.push_back(STRING);
+                            cur_input.type = STRING;
+                        } else {
+                            input_types.push_back(CHAR);
+                            cur_input.type = CHAR;
+                        }
                         
                         lc_getline(test_file, line);
                         
@@ -90,7 +95,7 @@ void BaseSolution:: read_test_file(string path, int num) {
                     // type of array of int
                     // type of vector of int
                     else if (line.compare("VI") == 0 || line.compare("AI") == 0) {
-                        if (line.compare("VI")) {
+                        if (line.compare("VI") == 0) {
                             cur_input.type = VECTOR_INT;
                             input_types.push_back(VECTOR_INT);
                         } else {
@@ -170,28 +175,41 @@ bool BaseSolution::lc_getline(ifstream &r_file, string &str_buf) {
     return false;
 }
 
-void BaseSolution:: print_result(int type, void* data) {
+void BaseSolution:: print_result(int type, result_data_t *data) {
     printf("Result is:\n");
     printf("\n");
     
     switch (type) {
         case INTEGER: {
-            int *p_res = (int *)data;
-            printf("%d\n", *p_res);
+            printf("%s: %d\n", my_name.c_str(), data->result.res_int);
             break;
         }
         case DOUBLE: {
-            double *p_res = (double *)data;
-            printf("%s: %f\n", my_name.c_str(), *p_res);
+            printf("%s: %f\n", my_name.c_str(), data->result.res_double);
             break;
         }
         case STRING: {
-            printf("%s: %s\n", my_name.c_str(), (char *)data);
+            printf("%s: %s\n", my_name.c_str(), data->result.res_str);
+            break;
+        }
+        case BOOLEAN: {
+            printf("%s: %s\n", my_name.c_str(), data->result.res_bool ? "True" : "False");
             break;
         }
 
+        case VECTOR_INT: {
+            printf("%s: ", my_name.c_str());
+            vector<int> *p_data = data->result.res_vec_int;
+
+            for (int i = 0; i < p_data->size(); ++i) {
+                printf("%d, ", p_data->at(i));
+            }
+            printf("\n");
+            break;
+        }
         case LIST_INT: {
-            ListNode *head = *(ListNode **)data;
+            ListNode *head = data->result.res_list_int;
+            printf("%s\n", my_name.c_str());
             while (head) {
                 if (head->next) {
                     printf("%d -> ", head->val);
@@ -240,6 +258,9 @@ void BaseSolution:: set_up_inputs() {
             case STRING:
                 ptr_in_arg = &basic_vec_str[pos];
                 break;
+            case CHAR:
+                ptr_in_arg = &basic_vec_str[pos][0];
+                break;
             case DOUBLE:
                 ptr_in_arg = &basic_vec_dou[pos];
                 break;
@@ -287,7 +308,7 @@ void BaseSolution:: run() {
     get_ready();
     res = lc_start();
 
-    print_result(res.type, &res.result);
+    print_result(res.type, &res);
 }
 
 string BaseSolution:: get_test_file_path(int num) {
@@ -321,7 +342,21 @@ BaseSolution* getSolutionClass(int problem_num) {
         case 6:
             p_solution = new ZigZag_Conversion_P006();
             break;
-
+        case 7:
+            p_solution = new Reverse_Integer_P007();
+            break;
+        case 8:
+            p_solution = new String_To_Integer_P008();
+            break;
+        case 9:
+            p_solution = new Palindrome_Number_P009();
+            break;
+        case 10:
+            p_solution = new Regular_Expression_Matching_P010();
+            break;
+        case 11:
+            p_solution = new Container_With_Most_Water_P011();
+            break;
         case 12:
             p_solution = new Integer_To_Roman_P012();
             break;

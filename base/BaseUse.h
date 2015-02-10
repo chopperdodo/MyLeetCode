@@ -13,6 +13,7 @@
 #include <stack>
 #include <string.h>
 #include <string>
+#include <limits.h>
 #include <unordered_map>
 
 #include <cstdio>
@@ -44,14 +45,16 @@ struct ListNode {
 enum {
     INTEGER = 1,
     STRING,
+    CHAR,
     DOUBLE,
+    BOOLEAN,
 
-    ARRAY_INT = 5,
+    ARRAY_INT = 10,
 
-    VECTOR_INT = 10,
+    VECTOR_INT = 20,
     VECTOR_STRING,
     
-    LIST_INT = 20,
+    LIST_INT = 30,
     
     HASHMAP_INT_INT = 50
 };
@@ -77,7 +80,11 @@ typedef struct _result_data_t {
     
     union {
         int    res_int;
+        double res_double;
+        bool   res_bool;
         char   res_str[256];
+        ListNode    *res_list_int;
+        vector<int> *res_vec_int;
 
     } result;
 
@@ -95,13 +102,11 @@ public:
 
     virtual result_data_t lc_start() { result_data_t res; return res; } // should = 0
 
-    virtual void print_result(int type, void* data);
+    virtual void print_result(int type, result_data_t* data);
     
     virtual void read_test_file(string path, int num);
     virtual void set_up_inputs();
 
-    virtual string get_name() { return "Base"; }
-    
 protected:
     // used for input
     vector<int>          input_types;

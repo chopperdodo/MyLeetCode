@@ -1,0 +1,11 @@
+TEST 1
+
+INPUT 1
+C
+aa
+
+INPUT 2
+C
+a*
+
+END
