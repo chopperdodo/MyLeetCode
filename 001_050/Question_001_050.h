@@ -232,4 +232,87 @@ public:
 };
 
 
+/*
+ * Given a roman numeral, convert it to an integer.
+ *
+ * Input is guaranteed to be within the range from 1 to 3999.
+ */
+class Roman_To_Integer_P013 : public BaseSolution {
+public:
+    Roman_To_Integer_P013() {
+        my_name = "Roman_To_Integer";
+        my_num = "013";
+    }
+    int romanToInt(string s);
+
+    virtual result_data_t lc_start();
+};
+
+/*
+ * Write a function to find the longest common prefix string amongst an array of strings. 
+ */
+class Longest_Common_Prefix_P014 : public BaseSolution {
+public:
+    Longest_Common_Prefix_P014() {
+        my_name = "Longest_Common_Prefix";
+        my_num = "014";
+    }
+    string longestCommonPrefix(vector<string> &strs);
+ 
+    virtual result_data_t lc_start();
+};
+
+/*
+ * Given an array S of n integers, are there elements a, b, c in S such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.
+ *
+ * Note:
+ *
+ * Elements in a triplet (a,b,c) must be in non-descending order. (ie, a ≤ b ≤ c)
+ * The solution set must not contain duplicate triplets.
+ *
+ * For example, given array S = {-1 0 1 2 -1 -4},
+ *
+ * A solution set is:
+ * (-1, 0, 1)
+ * (-1, -1, 2)
+ */
+class Three_Sum_P015 : public BaseSolution {
+public:
+    Three_Sum_P015() {
+        my_name = "Three_Sum";
+        my_num  = "015";
+    }
+
+    vector<vector<int> > threeSum(vector<int> &num) {vector<vector<int> > v; return v;}
+    
+    virtual result_data_t lc_start() {result_data_t res; return res;}
+};
+
+/*
+ * Given an array S of n integers, find three integers in S such that the sum is closest to a given number, target. Return the sum of the three integers. You may assume that each input would have exactly one solution.
+ *
+ * For example, given array S = {-1 2 1 -4}, and target = 1.
+ *
+ * The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).
+ */
+class Three_Sum_Closest_P016 : public BaseSolution {
+public:
+    Three_Sum_Closest_P016() {
+        my_name = "Three_Sum_Closest";
+        my_num  = "016";
+    }
+
+    int threeSumClosest(vector<int> &num, int target) {return -1;}
+
+    virtual result_data_t lc_start() {result_data_t res; return res;}
+};
+
+
+
+
+
+
+
+
+
 #endif /*define __LeetCode_Question_001_050__*/

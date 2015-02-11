@@ -68,6 +68,7 @@ typedef struct _input_data_t {
         int pos_int;
         int pos_str;
         int pos_vec_int;
+        int pos_vec_str;
         int pos_lst_int;
     };
     

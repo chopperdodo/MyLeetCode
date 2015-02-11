@@ -119,7 +119,27 @@ void BaseSolution:: read_test_file(string path, int num) {
                         
                         input_data.push_back(cur_input);
                     }
-                    
+                 
+                    // type of vector of string
+                    else if (line.compare("VS") == 0) {
+                        vector<string> tmp_vec;
+                        cur_input.type = VECTOR_STRING;
+                        input_types.push_back(VECTOR_STRING);
+
+                        lc_getline(test_file, line);
+
+                        istringstream line_sp(line);
+                        string token;
+
+                        while (getline(line_sp, token, ',')) {
+                            tmp_vec.push_back(token);
+                        }
+                        vec_str.push_back(tmp_vec);
+
+                        cur_input.pos_vec_str = (int)vec_str.size() - 1;
+                        input_data.push_back(cur_input);
+                    }
+
                     // type of list of int
                     else if (line.compare("LI") == 0) {
                         cur_input.type = LIST_INT;
@@ -359,6 +379,12 @@ BaseSolution* getSolutionClass(int problem_num) {
             break;
         case 12:
             p_solution = new Integer_To_Roman_P012();
+            break;
+        case 13:
+            p_solution = new Roman_To_Integer_P013();
+            break;
+        case 14:
+            p_solution = new Longest_Common_Prefix_P014();
             break;
 
         case 114:
