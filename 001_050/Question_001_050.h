@@ -283,9 +283,9 @@ public:
         my_num  = "015";
     }
 
-    vector<vector<int> > threeSum(vector<int> &num) {vector<vector<int> > v; return v;}
+    vector<vector<int> > threeSum(vector<int> &num);
     
-    virtual result_data_t lc_start() {result_data_t res; return res;}
+    virtual result_data_t lc_start();
 };
 
 /*
@@ -309,6 +309,27 @@ public:
 
 
 
+/*
+ *  You are given a string, S, and a list of words, L, that are all of the same length. Find all starting indices of substring(s) in S that is a concatenation of each word in L exactly once and without any intervening characters.
+ *
+ *  For example, given:
+ *  S: "barfoothefoobarman"
+ *  L: ["foo", "bar"]
+ *
+ *  You should return the indices: [0,9].
+ *  (order does not matter). 
+ */
+class Substring_With_Concatenation_Of_All_Words_P030 : public BaseSolution {
+public:
+    Substring_With_Concatenation_Of_All_Words_P030() {
+        my_name = "Substring_With_Concatenation_Of_All_Words";
+        my_num  = "030";
+    }
+
+    vector<int> findSubstring(string S, vector<string> &L);
+
+    virtual result_data_t lc_start();
+};
 
 
 

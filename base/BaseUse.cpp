@@ -240,6 +240,18 @@ void BaseSolution:: print_result(int type, result_data_t *data) {
             }
             break;
         }
+        case VECTOR_VECTOR_INT: {
+            printf("%s:\n", my_name.c_str());
+            vector<vector<int> > *p_data = data->result.res_vec_vec_int;
+
+            for (int i = 0; i < p_data->size(); ++i) {
+                for (int j = 0; j < p_data->at(i).size(); ++j) {
+                    printf("%d, ", p_data->at(i)[j]);
+                }
+                printf("\n");
+            }
+            break;
+        }
             
     }
 }
@@ -385,6 +397,14 @@ BaseSolution* getSolutionClass(int problem_num) {
             break;
         case 14:
             p_solution = new Longest_Common_Prefix_P014();
+            break;
+        case 15:
+            p_solution = new Three_Sum_P015();
+            break;
+
+
+        case 30:
+            p_solution = new Substring_With_Concatenation_Of_All_Words_P030();
             break;
 
         case 114:

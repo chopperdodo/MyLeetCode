@@ -21,6 +21,7 @@
 #include <sstream>
 #include <fstream>
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 
@@ -53,7 +54,9 @@ enum {
 
     VECTOR_INT = 20,
     VECTOR_STRING,
-    
+   
+    VECTOR_VECTOR_INT,
+
     LIST_INT = 30,
     
     HASHMAP_INT_INT = 50
@@ -87,6 +90,7 @@ typedef struct _result_data_t {
         ListNode    *res_list_int;
         vector<int> *res_vec_int;
 
+        vector<vector<int> > *res_vec_vec_int;
     } result;
 
 } result_data_t;
